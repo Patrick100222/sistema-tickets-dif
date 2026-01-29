@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Tickets{% endblock %}
+
+{% block content %}
+<h1>Tickets registrados</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Área</th>
+        <th>Problema</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th>Acción</th>
+    </tr>
+
+    {% for ticket in tickets %}
+    <tr>
+        <td>{{ ticket[0] }}</td>
+        <td>{{ ticket[1] }}</td>
+        <td>{{ ticket[2] }}</td>
+        <td>{{ ticket[3] }}</td>
+        <td>{{ ticket[4] }}</td>
+        <td class="estado-{{ ticket[5]|lower }}">{{ ticket[5] }}</td>
+        <td>
+            {% if ticket[5] == "Abierto" %}
+                <a href="/cerrar/{{ ticket[0] }}">Cerrar</a>
+            {% else %}
+                Cerrado
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

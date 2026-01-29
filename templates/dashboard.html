@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1>Dashboard de Tickets</h1>
+
+<div class="dashboard">
+    <div class="card">
+        <h2>Total</h2>
+        <p>{{ total }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Abiertos</h2>
+        <p>{{ abiertos }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Cerrados</h2>
+        <p>{{ cerrados }}</p>
+    </div>
+</div>
+
+<h2>Tickets por complejidad</h2>
+
+<table>
+    <tr>
+        <th>Complejidad</th>
+        <th>Cantidad</th>
+    </tr>
+
+    {% for c in complejidades %}
+    <tr>
+        <td>{{ c[0] }}</td>
+        <td>{{ c[1] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

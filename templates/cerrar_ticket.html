@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Cerrar Ticket{% endblock %}
+
+{% block content %}
+<h1>Cerrar Ticket #{{ ticket_id }}</h1>
+
+<form method="POST">
+    <label>Observaciones:</label><br>
+    <textarea name="observaciones" required></textarea><br>
+
+    <label>Complejidad:</label><br>
+    <select name="complejidad" required>
+        <option value="">Seleccione una opción</option>
+        <option value="Fácil">Fácil</option>
+        <option value="Medio">Medio</option>
+        <option value="Difícil">Difícil</option>
+    </select><br><br>
+
+    <button type="submit">Cerrar ticket</button>
+</form>
+{% endblock %}
